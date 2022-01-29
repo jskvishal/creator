@@ -21,7 +21,7 @@ module.exports = {
     hive.api.getAccounts([customer], (err, res) => {
 	  if(err) console.log('Error getting public key! '+err)
       var encoded = hive.memo.encode(wif, res[0].memo_key, `#${memo}`)
-      hive.broadcast.transfer(wif, from, customer, '0.001 HIVE', encoded, function(err, result) {
+      hive.broadcast.transfer(wif, from, customer, '0.001 WORTH', encoded, function(err, result) {
         if (err) console.log('Error sending tokens: '+err)
         if(result){
           console.log("Tokens sent! " + tokens.join(', '))
@@ -49,7 +49,7 @@ module.exports = {
 }
 
 function sendTip(amount){
-  hive.broadcast.transfer(wif, from, 'fbslo', amount, 'Thank you!', function(err, result) {
+  hive.broadcast.transfer(wif, from, 'kshamtas', amount, 'Thank you!', function(err, result) {
     if(err) console.log("Error sending tip! " + err)
     if(result) console.log(config.tip * 100 + "% tip (" + amount + ") sent!")
   });
