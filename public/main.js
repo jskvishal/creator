@@ -1,4 +1,4 @@
-steem.api.setOptions({ url: 'https://api.hive.blog' });
+steem.api.setOptions({ url: 'https://api.wortheum.news' });
 
 var price_per_account;
 var currency;
@@ -32,7 +32,7 @@ function buy(){
   <div class='input-group-prepend'>
     <span class="input-group-text" id="basic-addon1">@</span>
   </div>
-    <input type="text" class="form-control" placeholder="Your HIVE username" aria-label="name" aria-describedby="basic-addon1" id="username">
+    <input type="text" class="form-control" placeholder="Your Wortheum username" aria-label="name" aria-describedby="basic-addon1" id="username">
     <div class='input-group-append'>
       <button type="button" class="btn btn-success" onclick="numberOfTokens()">Continue</button>
     </div>
@@ -45,7 +45,7 @@ function decryptUsername(){
   <div class='input-group-prepend'>
     <span class="input-group-text" id="basic-addon1">@</span>
   </div>
-    <input type="text" class="form-control" placeholder="Your HIVE username" aria-label="name" aria-describedby="basic-addon1" id="username">
+    <input type="text" class="form-control" placeholder="Your Wortheum username" aria-label="name" aria-describedby="basic-addon1" id="username">
     <div class='input-group-append'>
       <button type="button" class="btn btn-success" onclick="decrypt()">Continue</button>
     </div>
@@ -86,7 +86,7 @@ function decryptWithKey(memo, username){
 }
 
 function decryptWithKeychain(username, memo){
-  var rpc = 'https://api.hive.blog'
+  var rpc = 'https://api.wortheum.news'
   hive_keychain.requestVerifyKey(username, memo, 'Memo', function(response) {
     console.log(response);
     showDecryptedMemo(response.result)
@@ -122,7 +122,7 @@ function buyTokens(username){
 }
 
 function keychain(username, amount){
-  var rpc = 'https://api.hive.blog'
+  var rpc = 'https://api.wortheum.news'
   var amount_full = parseFloat(amount * price_per_account).toFixed(3)
   var payment_info = `<small class="text-muted">You can also send <code>${amount_full} ${currency}</code> to <code>@${owner_account}</code> with memo <code>${memo}</code></a>.</small>`
   document.getElementById('payment_info').innerHTML = payment_info
@@ -282,7 +282,7 @@ function copy() {
 
 function download() {
   var text = 'Account Name: ' + document.getElementById('name').value + '\nPassword: ' +document.getElementById('key-copy').value
-  var filename = 'HIVE-' + document.getElementById('name').value + '.txt'
+  var filename = 'WORTH-' + document.getElementById('name').value + '.txt'
   var element = document.createElement('a');
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
   element.setAttribute('download', filename);
