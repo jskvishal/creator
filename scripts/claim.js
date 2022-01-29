@@ -13,7 +13,7 @@ module.exports = {
   claimAccount: function claimAccount(){
   const op = ['claim_account', {
 	creator: account,
-	fee: Asset.from('0.000 STEEM'),
+	fee: Asset.from('0.000 WORTH'),
 	extensions: [],
   }];
   claim(op)
